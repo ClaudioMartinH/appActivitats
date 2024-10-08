@@ -22,7 +22,7 @@ Claudio Martin Herranz
 1. **Clonar el repositori**:
 
    ```bash
-    git clone https://github.com/tu-usuario/appActivitats.git
+    git clone https://github.com/ClaudioMartinH/prova_hackato_SO_appActivitats.git
    
     cd appActivitats
    ```
