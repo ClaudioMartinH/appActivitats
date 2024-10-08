@@ -42,7 +42,7 @@ Claudio Martin Herranz
       MONGO_DB_URI=tu-usuario-y-contraseña-de-mongodb-y-elcluster-app
     ```
 
-    El servidor estarà disponible a <http://localhost:3000>
+    El servidor estarà disponible a <http://localhost:3000/api/register>
 
     L'String de connexió a la meva base de dades mongoDB serà al mail on adjunto l'enllaç al repositori.
     Només caldrà copiar el text a l'arxiu `` .env ``
