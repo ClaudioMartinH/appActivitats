@@ -35,7 +35,7 @@ Claudio Martin Herranz
 
 3. **Configurar l'entorno**:
 
-    Crea un arxiu `` .env `` en l'arrel del projecte amb les següents variables d'entorn:
+    Crea un arxiu `` .env `` en la carpeta `` /backend `` del projecte amb les següents variables d'entorn:
 
     ```bash
       PORT=3000
