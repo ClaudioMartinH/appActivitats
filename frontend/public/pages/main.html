@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App Activitats</title>
+  <link rel="stylesheet" href="/styles/main-styles.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <script type="module" src="/scripts/main.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>App Activitats</h3>
+        <hr>
+      </div>
+      <div class="sidebar-content">
+        <div class="user-info">
+          <span class="card-span" id="userName"></span>
+        </div>
+        <div class="user-tasks">
+          <h4>Activitats pendents</h4>
+          <hr>
+          <ul id="pendingTaskList"></ul>
+        </div>
+       
+        <div class="upload-section">
+          <h4>Configuració</h4>
+          <hr>
+          <p for="delete-user">Eliminar usuari</p>
+          <button class="edit-button" id="delete-user">Eliminar</button>
+          <div class="overlay" id="overlay"></div>
+          <p>Editar usuari</p>
+          <label for="edit-toggle" class="edit-button">Edita</label>
+          <input type="checkbox" id="edit-toggle" class="hidden-checkbox">
+          <div id="edit-user-form" class="edit-user-form">
+            <form id="edit-user-form">
+              <label for="username">Nom</label>
+              <input type="text" id="firstNameEdited" required>
+              <label for="username">Cognom</label>
+              <input type="text" id="lastNameEdited" required>
+              <label for="age">Edat</label>
+              <input type="number" id="ageEdited" required>
+              <label for="email">Correu electrònic</label>
+              <input type="email" id="emailEdited" required>
+              <label for="password">Contrasenya</label>
+              <input type="password" id="passwordEdited" required>
+              <button type="submit">Desar</button>
+            </form>
+          </div>
+          <p>Tancar sessió</p>
+           <button class="edit-button" id="quit">Sortir</button>
+        </div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <h1>App Activitats</h1>
+    <p>Aquí podràs gestionar les teves activitats.</p>
+    <hr>
+      <section class="task-section">
+        <header>
+        <div class="task-input">
+          <input type="text" id="newTaskTitle" placeholder="Títol de l'activitat"></input>
+          <input type="text" id="newTaskDescription" placeholder="Descripció de l'activitat"></input>
+          <input type="number" id="newTaskCapacity" placeholder="Capacitat de l'activitat"></input>
+          <button id="addTask">Afegir Activitat</button>
+        </div>
+        <div class="upload-section">
+          <form id="uploadForm">
+            <label for="upload-task"><br>Pujar un arxiu d'activitats amb extensió ".json" </label>
+            <input type="file" id="upload-task-file-input" placeholder="Puja aqui l'arxiu .json" accept=".json" required />
+            <button type="submit">Pujar</button>
+            <button id="download-tasks" type="button" >Descarrega les Activitats</button>
+            <div id="link"></div>
+          </form>
+        </div>
+      </header>
+      <main>
+        <div class="task-list">
+          <div id="alert-container"></div>
+          <h2>Totes les Activitats</h2>
+          <ul id="allTaskList"></ul>
+        </div>
+      </main>
+    </main>
+  </div>
+</body>
+
+</html>

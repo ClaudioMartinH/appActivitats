@@ -1,0 +1,16 @@
+{
+  "name": "prova_hackato_so",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run install:backend && npm run build:frontend && npm run build:backend && npm run start:backend",
+    "build:backend": "cd backend && npm run build",
+    "install:backend": "cd backend && npm install",
+    "start:backend": "cd backend && npm start",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": [],
+  "author": "Claudio Martin Herranz",
+  "license": "ISC",
+  "description": "appActivitats"
+}

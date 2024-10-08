@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  background: url("../img/pexels-blitzboy-1144176.jpg") scroll;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+}
+body.menu-active .edit-user-form {
+  display: block;
+}
+header {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+h2 {
+  margin-top: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  background: transparent;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 250px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px 30px;
+}
+.sidebar h3 {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.sidebar header,
+.main-content header {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+.user-info,
+.user-tasks {
+  margin-bottom: 20px;
+}
+p {
+  margin-top: 15px;
+}
+.task-input,
+.upload-section {
+  margin-bottom: 5px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.upload-section input[type="file"] {
+  margin-bottom: 5px;
+  max-width: 130px;
+}
+
+.task-input input {
+  width: 50%;
+  height: 30px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.task-input input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+  width: 50%;
+  height: 30px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.task-list,
+.user-tasks {
+  margin-top: 10px;
+}
+
+.download-tasks button {
+  margin-top: 0px;
+}
+.task-list ul,
+.user-tasks ul {
+  list-style-type: none;
+}
+.card-span {
+  display: inline-block; /* Hace que el span se comporte como un bloque en línea */
+  padding: 5px 10px; /* Espaciado interno de la tarjeta */
+  background: transparent; /* Color de fondo */
+  border: 1px solid #ccc; /* Borde de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto elevado */
+  font-size: 14px; /* Tamaño de la fuente */
+  font-weight: 500; /* Peso de la fuente */
+  color: #fff; /* Color del texto */
+  margin: 5px; /* Espaciado externo */
+  transition: box-shadow 0.3s ease; /* Transición suave para hover */
+}
+
+.card-span:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al hacer hover */
+}
+
+.task-list li,
+.user-tasks li {
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.toggle-sidebar {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.task-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.task-item p {
+  display: flex;
+  flex-grow: 1;
+  /* justify-content: center;
+  align-items: center; */
+  margin: 0;
+  right: 0;
+}
+
+.join-button,
+.quit-button,
+.delete-button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  right: 0;
+  width: 75px;
+}
+
+.join-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.quit-button {
+  background-color: #1034aa;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+.alert {
+  padding: 15px;
+  background-color: #f4433600; /* Rojo */
+  color: white;
+  margin-bottom: 15px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.alert.hide {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 100%;
+  }
+}
+/* Estilos del botón para editar usuario */
+.edit-button {
+  width: 100%;
+  height: 30px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  padding: 5px 10px;
+}
+
+/* Checkbox oculto que controla la visibilidad del formulario */
+.hidden-checkbox {
+  display: none;
+}
+
+/* Estilos del formulario para editar usuario */
+.edit-user-form {
+  display: none;
+  position: absolute;
+  bottom: 50px; /* Despliega hacia arriba desde el botón */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min-content;
+  padding: 5px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #000000c6;
+  opacity: 5;
+  z-index: 1000; /* Para que quede encima de otros elementos */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px);
+}
+
+.edit-user-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-user-form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.edit-user-form input {
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-user-form button {
+  width: 50%;
+  height: 30px;
+  background: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+}
+
+/* Mostrar el formulario cuando el checkbox está activado */
+.hidden-checkbox:checked + .edit-user-form {
+  display: block;
+  opacity: 1;
+  bottom: 100px; /* Ajusta la altura de despliegue */
+}
+
+/* Estilos del botón para editar usuario 
+.edit-button {
+  width: 50%;
+  height: 30px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  padding: 5px 10px;
+}
+
+.edit-user-button:hover {
+  background-color: #01833ca1;
+  transition: ease-in;
+}
+
+.hidden-checkbox {
+  display: none;
+}
+
+.edit-user-form {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  background: transparent;
+}
+
+.edit-user-form form {
+  display: flex;
+  flex-direction: column;
+  background: #ddd transparent;
+}
+
+.edit-user-form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  background: #ddd transparent;
+}
+
+.edit-user-form input {
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-user-form button {
+  width: 50%;
+  height: 30px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.edit-user-form button:hover {
+  background-color: #218838;
+}
+
+.hidden-checkbox:checked + .edit-user-form {
+  display: block;
+}
+*/
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* Fondo transparente */
+  z-index: 999; /* Colocarlo justo por debajo del formulario */
+}
+
+/* Cuando el checkbox está marcado, mostrar el formulario y el overlay */
+.hidden-checkbox:checked + .edit-button + .overlay {
+  display: block;
+}
+
+.hidden-checkbox:checked + .edit-button + .overlay + .edit-user-form {
+  display: block;
+  opacity: 1;
+  bottom: 100px;
+}
