@@ -2,21 +2,24 @@
 
 ## Backend - AppActivitats
 
-Este proyecto es un backend para la aplicación "AppActivitats". Está desarrollado utilizando **Node.js**, **Express**, y **MongoDB**, y también incluye funcionalidades para manejo de usuarios y tareas, con características de seguridad añadidas como **Helmet** y autenticación basica.
+Aquest projecte és la prova tècnica per poder accedir a la Hackhathó del Cibernàrium pel Saló de l'Ocupació 2024.
+Consisteix en una aplicació de gestió d'activitats, en la qual ens podem registrar com a usuaris, accedir-hi, podem crear activitats, ens hi podem apuntar o desapuntar, podem eliminar tasques i usuaris, i podem editar usuaris tambe.
+Com a requisits ens demanaven poder pujar arxius en format .JOSN o be descarregar en format .JSON totes les activitats de la base de dades.
+El backend està desenvolupat amb **NodeJS** i **Express**, la base de dades es de **MongoDB**
 
 ### Autor
 
 Claudio Martin Herranz
 
-## Requisitos
+## Requisits
 
 - **Node.js** (v20.17.0 o superior)
 - **MongoDB** (Instancia local o remota)
 - **npm** (v7.0.0 o superior)
 
-## Instalación
+## Instal·lació
 
-1. **Clonar el repositorio**:
+1. **Clonar el repositori**:
 
    ```bash
     git clone https://github.com/tu-usuario/appActivitats.git
@@ -24,13 +27,13 @@ Claudio Martin Herranz
     cd appActivitats
    ```
 
-2. **Instalar las dependencias, compilar el proyecto y arrancar el servidor**:
+2. **Instal#lar les dependències, compilar el projecte i arrencar el servidor**:
 
     ```bash
       npm run start 
     ```
 
-3. **Configurar el entorno**:
+3. **Configurar l'entorno**:
 
     Crea un arxiu `` .env `` en l'arrel del projecte amb les següents variables d'entorn:
 
@@ -132,12 +135,18 @@ Claudio Martin Herranz
 
         - Usuaris:
           
+          • GET /appActivitats/users/:id: Consulta de la informació d'un usuari. ✅
           • POST /appActivitats/user: Registre d'un nou usuari. ✅
           • PUT /appActivitats/users/:id: Actualització de les dades d'un usuari. ✅
-          • GET /appActivitats/users/:id: Consulta de la informació d'un usuari. ✅
           • DELETE /appActivitats/users/:id: Eliminació d'un usuari. ✅
 
     Endpoints de l'API creats per mi:
+
+        - Usuaris:
+          
+          • GET /appActivitats/users/search/:name : Fa una cerca a la base de dades pel nom de l'usuari donat.
+          • GET /appActivitats/users/ : Retorna tots els usuaris que hi han enregistrats a la base de dades
+          • POST /appActivitats/user/login : Permet accedir a l'app
     
         - Activitats:
 
