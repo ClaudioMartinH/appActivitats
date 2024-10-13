@@ -22,7 +22,7 @@ Claudio Martin Herranz
 1. **Clonar el repositori**:
 
    ```bash
-    git clone https://github.com/tu-usuario/appActivitats.git
+    git clone https://github.com/ClaudioMartinH/prova_hackato_SO_appActivitats.git
    
     cd appActivitats
    ```
@@ -35,14 +35,14 @@ Claudio Martin Herranz
 
 3. **Configurar l'entorno**:
 
-    Crea un arxiu `` .env `` en l'arrel del projecte amb les següents variables d'entorn:
+    Crea un arxiu `` .env `` en la carpeta `` /backend `` del projecte amb les següents variables d'entorn:
 
     ```bash
       PORT=3000
       MONGO_DB_URI=tu-usuario-y-contraseña-de-mongodb-y-elcluster-app
     ```
 
-    El servidor estarà disponible a <http://localhost:3000>
+    El servidor estarà disponible a <http://localhost:3000/api/register>
 
     L'String de connexió a la meva base de dades mongoDB serà al mail on adjunto l'enllaç al repositori.
     Només caldrà copiar el text a l'arxiu `` .env ``
