@@ -15,12 +15,10 @@
     {
       "source": "/appActivitats/main",
       "destination": "/api/appActivitats/main"
-    }
-  ],
-  "routes": [
+    },
     {
-      "src": "/api/(.*)",
-      "dest": "/backend/dist/server.js"
+      "source": "/api/(.*)",
+      "destination": "/backend/dist/server.js"
     }
   ]
 }
