@@ -1,8 +1,26 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/",
+      "destination": "/login"
+    },
+    {
+      "source": "/login",
+      "destination": "/login"
+    },
+    {
+      "source": "/register",
+      "destination": "/register"
+    },
+    {
+      "source": "/appActivitats/main",
+      "destination": "/appActivitats/main"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/server.js"
     }
   ]
 }
