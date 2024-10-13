@@ -2,19 +2,19 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/login"
+      "destination": "/api/login"
     },
     {
       "source": "/login",
-      "destination": "/login"
+      "destination": "/api/login"
     },
     {
       "source": "/register",
-      "destination": "/register"
+      "destination": "/api/register"
     },
     {
       "source": "/appActivitats/main",
-      "destination": "/appActivitats/main"
+      "destination": "/api/appActivitats/main"
     }
   ],
   "routes": [
