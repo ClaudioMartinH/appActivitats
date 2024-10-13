@@ -7,7 +7,7 @@
     "test": "",
     "lint": "eslint . --ext .ts,.tsx",
     "dev": "nodemon dist/src/server.js",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.json",
     "start": "node dist/src/server.js"
   },
   "keywords": [],
