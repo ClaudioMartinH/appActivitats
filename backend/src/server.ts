@@ -72,13 +72,13 @@ app.use(
 app.use(errorHandler);
 app.use("/api", userRouter);
 app.use("/api", taskRouter);
-app.get("/api/login", (req, res) => {
+app.get("/login", (req, res) => {
   res.sendFile(path.join(frontendPath, "public/pages/login.html"));
 });
-app.get("/api/register", (req, res) => {
+app.get("/register", (req, res) => {
   res.sendFile(path.join(frontendPath, "public/pages/register.html"));
 });
-app.get("/api/appActivitats/main", (req, res) => {
+app.get("/appActivitats/main", (req, res) => {
   res.sendFile(path.join(frontendPath, "public/pages/main.html"));
 });
 

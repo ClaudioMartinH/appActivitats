@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
         );
       }
       console.log("Usuario creado correctamente:", data);
-      window.location.href = `${backendURL}/api/login`;
+      window.location.href = `${backendURL}/login`;
     } catch (error) {
       console.error("Error al crear el usuario:", error);
     }

@@ -8,8 +8,8 @@ window.addEventListener("DOMContentLoaded", () => {
       : "https://app-activitats.vercel.app";
   const mainURL =
     window.location.hostname === "localhost"
-      ? "/api/appActivitats/main"
-      : "https://app-activitats.vercel.app/api/appActivitats/main";
+      ? "/appActivitats/main"
+      : "https://app-activitats.vercel.app/appActivitats/main";
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
