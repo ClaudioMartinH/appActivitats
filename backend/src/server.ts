@@ -83,10 +83,15 @@ app.get("/api/appActivitats/main", (req, res) => {
 });
 
 async function startServer() {
-  await connectToMongoDB();
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+  try {
+    await connectToMongoDB();
+    app.listen(Number(PORT), "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Failed to start the server:", error);
+    process.exit(1);
+  }
 }
 
 startServer();
