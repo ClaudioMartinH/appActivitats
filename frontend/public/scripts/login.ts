@@ -2,10 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-data") as HTMLFormElement;
   const userName = document.getElementById("userName") as HTMLInputElement;
   const password = document.getElementById("password") as HTMLInputElement;
-  const backendURL =
-    window.location.hostname === "localhost"
-      ? "http://localhost:3000"
-      : "https://app-activitats.vercel.app";
+  const backendURL = window.location.origin;
   const mainURL =
     window.location.hostname === "localhost"
       ? "/appActivitats/main"

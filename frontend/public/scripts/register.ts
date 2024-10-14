@@ -34,10 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
       alert("Passwords do not match");
       return;
     }
-    const backendURL =
-      window.location.hostname === "localhost"
-        ? "http://localhost:3000"
-        : "https://app-activitats.vercel.app";
+    const backendURL = window.location.origin;
     const userData = {
       firstName: firstNameInputValue,
       lastName: lastNameInputValue,
