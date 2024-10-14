@@ -17,6 +17,10 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
     try {
+      console.log(
+        "URL de la solicitud:",
+        `${backendURL}/api/appActivitats/user/login`
+      );
       const response = await fetch(
         `${backendURL}/api/appActivitats/user/login`,
         {
