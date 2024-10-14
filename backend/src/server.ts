@@ -19,9 +19,14 @@ const frontendPath = path.resolve(__dirname, "../../../frontend");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
+const origin =
+  process.env.NODE_ENV === "production"
+    ? "https://app-activitats.vercel.app"
+    : `http://localhost:${PORT}`;
+
 app.use(
   cors({
-    origin: [`http://localhost:${PORT}`],
+    origin: origin,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
