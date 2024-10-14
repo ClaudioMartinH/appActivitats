@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import helmet from "helmet";
 import errorHandler from "./middleware/errorHandler.js";
-import { PORT } from "./utils/env.js";
+import { PORT, NODE_ENV } from "./utils/env.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 const origin =
-  process.env.NODE_ENV === "production"
+  NODE_ENV === "production"
     ? "https://app-activitats.vercel.app"
     : `http://localhost:${PORT}`;
 
