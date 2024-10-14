@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/scripts/(.*)",
-      "dest": "frontend/public/scripts/$1"
+      "dest": "public/scripts/$1"
     },
     {
       "src": "/api/appActivitats/(.*)",
