@@ -34,7 +34,10 @@ window.addEventListener("DOMContentLoaded", () => {
       alert("Passwords do not match");
       return;
     }
-    const backendURL = "http://localhost:3000";
+    const backendURL =
+      window.location.hostname === "localhost"
+        ? "http://localhost:3000"
+        : "https://app-activitats.vercel.app";
     const userData = {
       firstName: firstNameInputValue,
       lastName: lastNameInputValue,
@@ -74,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
         );
       }
       console.log("Usuario creado correctamente:", data);
-      window.location.href = "/api/login";
+      window.location.href = `${backendURL}/api/login`;
     } catch (error) {
       console.error("Error al crear el usuario:", error);
     }

@@ -5,6 +5,10 @@ window.addEventListener("DOMContentLoaded", () => {
   //console.log(userEmail);
   const userName = localStorage.getItem("userDisplayFirstName");
   //console.log(userName);
+  const backendURL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:3000"
+      : "https://app-activitats.vercel.app";
 
   const fileInput = document.getElementById(
     "upload-task-file-input"
@@ -71,10 +75,13 @@ window.addEventListener("DOMContentLoaded", () => {
       formData.append("file", file);
 
       try {
-        const response = await fetch("/api/appActivitats/tasks/upload", {
-          method: "POST",
-          body: formData,
-        });
+        const response = await fetch(
+          `${backendURL}/api/appActivitats/tasks/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         if (response.ok) {
           const result = await response.json();
@@ -90,7 +97,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   async function fetchTasks(): Promise<any[]> {
     try {
-      const response = await fetch("/api/appActivitats/tasks");
+      const response = await fetch(`${backendURL}/api/appActivitats/tasks`);
       if (!response.ok) {
         throw new Error("Error al obtener las tareas");
       }
@@ -137,19 +144,22 @@ window.addEventListener("DOMContentLoaded", () => {
         //   password,
         // });
 
-        const response = await fetch(`/api/appActivitats/users/${userId}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            firstName,
-            lastName,
-            age,
-            email,
-            password,
-          }),
-        });
+        const response = await fetch(
+          `${backendURL}/api/appActivitats/users/${userId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              firstName,
+              lastName,
+              age,
+              email,
+              password,
+            }),
+          }
+        );
 
         if (response.ok) {
           //console.log("Usuario editado correctamente");
@@ -174,7 +184,9 @@ window.addEventListener("DOMContentLoaded", () => {
     .getElementById("download-tasks")
     ?.addEventListener("click", async () => {
       try {
-        const response = await fetch("/api/appActivitats/download");
+        const response = await fetch(
+          `${backendURL}/api/appActivitats/download`
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -246,17 +258,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
   deleteUserButton.addEventListener("click", async () => {
     try {
-      const response = await fetch(`/api/appActivitats/users/${userId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${backendURL}/api/appActivitats/users/${userId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } catch {
       console.error("Error al eliminar el usuario");
       return;
     }
-    window.location.href = "/api/login";
+    window.location.href = `${backendURL}/api/login`;
   });
   function renderUserName() {
     userNameField.textContent = `${userName} - ${userEmail}`;
@@ -371,13 +386,16 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
     try {
-      const response = await fetch(`/api/appActivitats/tasks/${taskId}/join`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userJoinId: userJoinId }),
-      });
+      const response = await fetch(
+        `${backendURL}/api/appActivitats/tasks/${taskId}/join`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userJoinId: userJoinId }),
+        }
+      );
       //console.log("Estado de la respuesta:", response.status);
 
       const data = await response.json();
@@ -415,12 +433,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   async function handleDelete(taskId: string) {
     try {
-      const response = await fetch(`/api/appActivitats/tasks/${taskId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${backendURL}/api/appActivitats/tasks/${taskId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         showTemporaryAlert("Tarea eliminada exitosamente", "#4CAF50");
@@ -449,7 +470,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     try {
       const response = await fetch(
-        `/api/appActivitats/tasks/${taskId}/remove/${participantId}`,
+        `${backendURL}/api/appActivitats/tasks/${taskId}/remove/${participantId}`,
         {
           method: "DELETE",
           headers: {
@@ -494,7 +515,7 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
     try {
-      const response = await fetch("/api/appActivitats/task", {
+      const response = await fetch(`${backendURL}/api/appActivitats/task`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
