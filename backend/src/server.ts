@@ -69,6 +69,7 @@ app.use(
     res.status(500).json({ error: "Something went wrong" });
   }
 );
+app.use(errorHandler);
 app.use("/api", userRouter);
 app.use("/api", taskRouter);
 app.get("/api/login", (req, res) => {
@@ -80,7 +81,6 @@ app.get("/api/register", (req, res) => {
 app.get("/api/appActivitats/main", (req, res) => {
   res.sendFile(path.join(frontendPath, "public/pages/main.html"));
 });
-app.use(errorHandler);
 
 app.listen(PORT, () => {
   connectToMongoDB();
