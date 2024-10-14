@@ -12,16 +12,16 @@
   ],
   "routes": [
     {
-      "src": "/scripts/(.*)",
-      "dest": "public/scripts/$1"
-    },
-    {
       "src": "/api/appActivitats/(.*)",
       "dest": "backend/dist/src/server.js"
     },
     {
       "src": "/api/(.*)",
       "dest": "backend/dist/src/server.js"
+    },
+    {
+      "src": "/scripts/(.*)",
+      "dest": "frontend/public/scripts/$1"
     },
     {
       "src": "/",
