@@ -40,10 +40,6 @@
       "dest": "frontend/public/pages/main.html"
     },
     {
-      "src": "/scripts/(.*)",
-      "dest": "/frontend/public/scripts/$1"
-    },
-    {
       "src": "/(.+)",
       "dest": "frontend/public/$1"
     }
