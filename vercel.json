@@ -6,29 +6,34 @@
       "use": "@vercel/node"
     },
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/public"
-      }
+      "src": "frontend/public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "backend/dist/index.js"
+    },
+    {
       "src": "/",
-      "dest": "/pages/register.html"
+      "dest": "frontend/public/pages/register.html"
     },
     {
-      "src": "/api/login",
-      "dest": "/pages/login.html"
+      "src": "/login",
+      "dest": "frontend/public/pages/login.html"
     },
     {
-      "src": "/api/register",
-      "dest": "/pages/register.html"
+      "src": "/register",
+      "dest": "frontend/public/pages/register.html"
     },
     {
-      "src": "/api/appActivitats/main",
-      "dest": "/pages/main.html"
+      "src": "/main",
+      "dest": "frontend/public/pages/main.html"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "frontend/public/$1"
     }
   ]
 }

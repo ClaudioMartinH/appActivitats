@@ -32,7 +32,14 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       );
       if (!response.ok) {
-        throw new Error("Error accedint");
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Error desconocido");
+        } else {
+          const errorText = await response.text();
+          throw new Error(`Error del servidor: ${errorText}`);
+        }
       }
       const data = await response.json();
       localStorage.setItem("email", emailValue);
