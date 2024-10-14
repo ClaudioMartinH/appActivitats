@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/dist/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/public"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/pages/register.html"
+    },
+    {
+      "src": "/api/login",
+      "dest": "/pages/login.html"
+    },
+    {
+      "src": "/api/register",
+      "dest": "/pages/register.html"
+    },
+    {
+      "src": "/api/appActivitats/main",
+      "dest": "/pages/main.html"
+    }
+  ]
+}
