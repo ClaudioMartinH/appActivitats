@@ -82,7 +82,11 @@ app.get("/api/appActivitats/main", (req, res) => {
   res.sendFile(path.join(frontendPath, "public/pages/main.html"));
 });
 
-app.listen(PORT, () => {
-  connectToMongoDB();
-  console.log(`Server running on port ${PORT}`);
-});
+async function startServer() {
+  await connectToMongoDB();
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+startServer();
