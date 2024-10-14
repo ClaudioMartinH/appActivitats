@@ -19,35 +19,41 @@ const frontendPath = path.resolve(__dirname, "../../../frontend");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+// const allowedOrigins = [
+//   "https://app-activitats.vercel.app",
+//   /^https:\/\/app-activitats-[a-zA-Z0-9-]+-claudimartins-projects\.vercel\.app$/,
+//   `http://localhost:${PORT}`,
+// ];
 
-const allowedOrigins = [
-  "https://app-activitats.vercel.app",
-  /^https:\/\/app-activitats-[a-zA-Z0-9-]+-claudimartins-projects\.vercel\.app$/,
-  `http://localhost:${PORT}`,
-];
+// const corsOptions: cors.CorsOptions = {
+//   origin: function (origin, callback) {
+//     // Permitir solicitudes sin origen (como las de herramientas de API)
+//     if (!origin) return callback(null, true);
 
-const corsOptions: cors.CorsOptions = {
-  origin: function (origin, callback) {
-    // Permitir solicitudes sin origen (como las de herramientas de API)
-    if (!origin) return callback(null, true);
+//     const isAllowed = allowedOrigins.some((allowedOrigin) =>
+//       typeof allowedOrigin === "string"
+//         ? allowedOrigin === origin
+//         : allowedOrigin.test(origin)
+//     );
 
-    const isAllowed = allowedOrigins.some((allowedOrigin) =>
-      typeof allowedOrigin === "string"
-        ? allowedOrigin === origin
-        : allowedOrigin.test(origin)
-    );
+//     if (isAllowed) {
+//       callback(null, true);
+//     } else {
+//       console.log("CORS error:", origin, "is not allowed");
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: true,
+// };
 
-    if (isAllowed) {
-      callback(null, true);
-    } else {
-      console.log("CORS error:", origin, "is not allowed");
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(morgan("dev"));
 app.use(
