@@ -4,6 +4,10 @@
     {
       "src": "backend/dist/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "frontend/public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -12,8 +16,24 @@
       "dest": "backend/dist/index.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "backend/dist/index.js"
+      "src": "/",
+      "dest": "frontend/public/pages/register.html"
+    },
+    {
+      "src": "/api/login",
+      "dest": "frontend/public/pages/login.html"
+    },
+    {
+      "src": "/api/register",
+      "dest": "frontend/public/pages/register.html"
+    },
+    {
+      "src": "/api/appActivitats/main",
+      "dest": "frontend/public/pages/main.html"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "frontend/public/$1"
     }
   ]
 }
