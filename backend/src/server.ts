@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import helmet from "helmet";
 import errorHandler from "./middleware/errorHandler.js";
-import { PORT, NODE_ENV } from "./utils/env.js";
+import { PORT } from "./utils/env.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -19,19 +19,30 @@ const frontendPath = path.resolve(__dirname, "../../../frontend");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
-const origin =
-  NODE_ENV === "production"
-    ? "https://app-activitats.vercel.app"
-    : `http://localhost:${PORT}`;
+const allowedOrigins = [
+  "https://app-activitats.vercel.app",
+  /^https:\/\/app-activitats-[a-zA-Z0-9-]+-claudimartins-projects\.vercel\.app$/,
+  `http://localhost:${PORT}`,
+];
 
 app.use(
   cors({
-    origin: origin,
+    origin: (
+      origin: string | undefined,
+      callback: (arg0: Error | null, arg1: boolean | undefined) => void
+    ) => {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(null, false);
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
+
 app.use(morgan("dev"));
 app.use(
   express.static("public", {
