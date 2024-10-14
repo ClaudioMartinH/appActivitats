@@ -13,11 +13,11 @@
   "routes": [
     {
       "src": "/api/appActivitats/(.*)",
-      "dest": "backend/dist/index.js"
+      "dest": "backend/dist/src/server.js"
     },
     {
       "src": "/api/(.*)",
-      "dest": "backend/dist/index.js"
+      "dest": "backend/dist/src/server.js"
     },
     {
       "src": "/",
