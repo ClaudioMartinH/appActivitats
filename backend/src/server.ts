@@ -82,7 +82,7 @@ app.get("/api/appActivitats/main", (req, res) => {
 });
 app.use(errorHandler);
 
-app.listen(+PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
   connectToMongoDB();
   console.log(`Server running on port ${PORT}`);
 });
