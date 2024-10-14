@@ -12,6 +12,10 @@
   ],
   "routes": [
     {
+      "src": "/scripts/(.*)",
+      "dest": "frontend/public/scripts/$1"
+    },
+    {
       "src": "/api/appActivitats/(.*)",
       "dest": "backend/dist/src/server.js"
     },
