@@ -12,6 +12,10 @@
   ],
   "routes": [
     {
+      "src": "/api/appActivitats/(.*)",
+      "dest": "backend/dist/index.js"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "backend/dist/index.js"
     },
