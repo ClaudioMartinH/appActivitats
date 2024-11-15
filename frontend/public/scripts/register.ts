@@ -34,7 +34,11 @@ window.addEventListener("DOMContentLoaded", () => {
       alert("Passwords do not match");
       return;
     }
-    const backendURL = window.location.origin;
+    // const backendURL = window.location.origin;
+    const backendURL =
+      window.location.hostname === "localhost"
+        ? "http://localhost:3000"
+        : "appactivitats-production.up.railway.app";
     const userData = {
       firstName: firstNameInputValue,
       lastName: lastNameInputValue,

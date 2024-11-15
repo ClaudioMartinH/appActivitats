@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const backendURL =
     window.location.hostname === "localhost"
       ? "http://localhost:3000"
-      : "https://app-activitats.vercel.app";
+      : "appactivitats-production.up.railway.app";
 
   const fileInput = document.getElementById(
     "upload-task-file-input"

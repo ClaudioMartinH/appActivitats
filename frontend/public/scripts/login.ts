@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const mainURL =
     window.location.hostname === "localhost"
       ? "/appActivitats/main"
-      : "https://app-activitats.vercel.app/appActivitats/main";
+      : "https://appactivitats-production.up.railway.app/main";
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
