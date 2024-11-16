@@ -5,8 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const backendURL = window.location.origin;
   const mainURL =
     window.location.hostname === "localhost"
-      ? "/appActivitats/main"
-      : "https://appactivitats-production.up.railway.app/main";
+      ? "http://localhost:3000"
+      : "https://appactivitats-production.up.railway.app";
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
